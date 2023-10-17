@@ -1,0 +1,22 @@
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    3276799],
+});
+
+const prefix = 'redes sociales';
+
+client.once('ready', () => {
+  console.log(`Logged in as ${client.user.tag}`);
+});
+
+client.on('messageCreate', (message) => {
+  if (message.content.startsWith(prefix + 'socials')) {
+    message.reply('Here are my social media links: Twitter - Proximamente, Instagram - https://www.instagram.com/facundo.froster/, Youtube - https://www.youtube.com/@FacundoFroster');
+  }
+});
+
+client.login('MTE1NzQ2MDU4MTEwODk0NTA1Nw.G27uJg.beE5oVjqjJPYrpRz6BgOQy0NT5gS1DADfYIra4');
